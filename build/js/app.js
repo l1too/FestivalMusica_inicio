@@ -33,10 +33,30 @@ function mostraImagen(id) {
         <img loading="lazy" width="200" height="300" src="build/img/grande/${id}.jpg" alt="imagen vocalista">
     `;
 
+    //crear overlay y agrega imagenes
     const overlay = document.createElement("DIV");
     overlay.appendChild(imagen);
     overlay.classList.add('overlay');
+    overlay.onclick = function(){
+        const body = document.querySelector('body');
+        body.classList.remove('fijar-body');
+        overlay.remove();
+    }
 
+    // cerrar el modal
+    const cerrarModal = document.createElement('P');
+    cerrarModal.textContent = 'X';
+    cerrarModal.classList.add('btn-cerrar');
+    cerrarModal.onclick = function() {
+        const body = document.querySelector('body');
+        body.classList.remove('fijar-body');
+        overlay.remove();
+    }
+    overlay.appendChild(cerrarModal);
+
+
+    //agrega el overlay al body
     const body = document.querySelector('body');
     body.appendChild(overlay);
+    body.classList.add('fijar-body');
 }
