@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'base/mixins' as m;
 html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -16,7 +17,12 @@ body {
         overflow: hidden;
     }
     &.body-scroll {
-        padding-top: 9.675rem;
+
+        @include m.tablet {
+            padding-top: 9.675rem;
+        }
+        
+        
     }
 }
 p {
